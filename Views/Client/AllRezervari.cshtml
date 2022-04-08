@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Teatru.Web.ViewModels.RezervareViewModel>
+
+@{
+    ViewData["Title"] = "AllRezervari";
+}
+
+<h1>Rezervari</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SelectedScenetaID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SelectedLocID)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data)
+            </td>     
+            <td>
+                @Html.DisplayFor(modelItem => item.SelectedScenetaID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SelectedLocID)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

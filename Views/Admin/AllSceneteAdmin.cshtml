@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Teatru.Web.ViewModels.ScenetaViewModel>
+
+@{
+    ViewData["Title"] = "AllSceneteAdmin";
+}
+
+<h1>Admin - Scenete</h1>
+
+<div class="btn btn-outline-success d-inline-flex p-2">
+    <a class="text-decoration-none text-dark" asp-action="CreateSceneta">Adauga o seneta</a>
+</div>
+<div class="btn btn-outline-dark d-inline-flex p-2">
+     @Html.ActionLink("Clienti", "AllClienti", "Client",new { }, new{@class="text-decoration-none text-dark"} )  
+</div>
+<div class="btn btn-outline-dark d-inline-flex p-2">
+     @Html.ActionLink("Rezervari", "AllRezervari", "Client",new { }, new{@class="text-decoration-none text-dark"} )  
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Durata)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Durata)
+            </td>
+            <td>
+                <div class="btn btn-warning d-inline-flex p-2 " >
+                    @Html.ActionLink("Editeaza", "Update", new {  id=item.ID  }, new{@class="text-decoration-none text-dark"} )
+                </div>
+                <div class="btn btn-info d-inline-flex p-2 ">
+                    @Html.ActionLink("Details", "Details", new { id=item.ID  }, new{@class="text-decoration-none text-dark"})
+                </div>
+                <div class="btn btn-danger d-inline-flex p-2 ">
+                    @Html.ActionLink("Delete", "Delete", new { id=item.ID }, new{@class="text-decoration-none text-dark"})
+                </div>
+    
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

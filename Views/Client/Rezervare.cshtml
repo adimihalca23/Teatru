@@ -1,0 +1,50 @@
+﻿@model Teatru.Web.ViewModels.RezervareViewModel
+
+@{
+    ViewData["Title"] = "Rezervare";
+}
+
+<h1>Rezervare</h1>
+<hr />
+    <div class="row">
+    <div class="col-md-4">
+        <form asp-action="Rezervare">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group">
+                <label asp-for="Data" class="control-label"></label>
+                <input asp-for="Data" class="form-control" />
+                <span asp-validation-for="Data" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SelectedScenetaID" class="control-label"></label>               
+                <select asp-for="SelectedScenetaID" asp-items="@Model.Scenete" class="form-select form-select-lg mb-3"></select>
+                <span asp-validation-for="SelectedScenetaID" class="text-danger"></span>
+            </div>
+           <div class="form-group">
+                <label asp-for="SelectedLocID" class="control-label"></label>
+                <input asp-for="SelectedLocID" class="form-control" />
+                <span asp-validation-for="SelectedLocID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-dark m-2" />
+            </div>
+        </form>
+    </div>
+    <div class="col-md-4">
+        <img src="~/Iamges/locuriTeatru.png" style="margin-left: 100px;margin-top: 35px;" alt="locuri"/>
+    </div>
+</div>
+
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

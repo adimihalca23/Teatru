@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Teatru.Web.ViewModels.ScenetaViewModel>
+
+@{
+    ViewData["Title"] = "AllScenete";
+}
+
+<h1>Scenete</h1>
+
+<table class="table">
+    <thead>
+        <tr> 
+            <th>
+                @Html.DisplayNameFor(model => model.Nume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Durata)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Durata)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
